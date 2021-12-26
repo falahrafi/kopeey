@@ -30,7 +30,7 @@
 
    <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container py-4 justify-content-center">
-         <a class="navbar-brand" href="index.html">
+         <a class="navbar-brand" href="index.php">
             <img src="assets/images/kopeey-logo-text-light.png" alt="" height="42">
          </a>
       </div>
@@ -85,7 +85,7 @@
 
    <section class="footer">
       <div class="container">
-         <div class="row gx-5">
+         <div class="row gx-sm-5">
             <div class="col-md-4 mb-5">
                <img src="assets/images/kopeey-logo-text-light.png" alt="" height="42">
                <p class="hero-paragraph mt-4">
@@ -98,13 +98,13 @@
                   Products
                </div>
                <div class="footer-link mb-3">
-                  <a href="index.html#arabica" target="_blank" id="btn-footer-arabica">Kopi Arabica</a>
+                  <a href="index.php#category-arabica" class="btn-arabica" id="btn-footer-arabica">Kopi Arabica</a>
                </div>
                <div class="footer-link mb-3">
-                  <a href="index.html#liberica" target="_blank" id="btn-footer-liberica">Kopi Liberica</a>
+                  <a href="index.php#category-liberica" class="btn-liberica" id="btn-footer-liberica">Kopi Liberica</a>
                </div>
                <div class="footer-link">
-                  <a href="index.html#robusta" target="_blank" id="btn-footer-robusta">Kopi Robusta</a>
+                  <a href="index.php#category-robusta" class="btn-robusta" id="btn-footer-robusta">Kopi Robusta</a>
                </div>
             </div>
 
@@ -113,10 +113,10 @@
                   Company
                </div>
                <div class="footer-link mb-3">
-                  <a href="about.html" target="_blank">About Us</a>
+                  <a href="about.php" target="_blank">About Us</a>
                </div>
                <div class="footer-link">
-                  <a href="contact.html" target="_blank">Contact Us</a>
+                  <a href="contact.php" target="_blank">Contact Us</a>
                </div>
             </div>
 

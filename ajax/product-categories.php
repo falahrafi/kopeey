@@ -57,3 +57,5 @@
       echo "0 results";
    endif;
 ?>
+
+<script type="text/javascript" src="scripts/tilt-effect.js"></script>

@@ -15,6 +15,18 @@ body {
    color: white;
 }
 
+.nav-link {
+   color: rgb(255, 255, 255) !important;
+   transition: all 0.3s ease-in-out;
+}
+.nav-link.active {
+   color: rgb(255, 255, 255) !important;
+   font-weight: 700;
+}
+.nav-link:hover {
+   font-size: 19px;
+}
+
 .kopeey-menu {
    font-family: 'Maven Pro', sans-serif;
    font-size: 18px;
@@ -281,6 +293,37 @@ body {
 
 .footer-copyright span {
    color: #EF9610;
+}
+
+.btn-outline-admin {
+   background-color: transparent;
+   border: 1px solid white;
+   border-radius: 30px;
+   transition: all 0.3s ease-in-out;
+}
+.btn-outline-admin:hover {
+   background-color: white;
+}
+.btn-outline-admin:hover a {
+   color: black !important;
+}
+
+.my-label {
+   width: fit-content;
+   background: #101010;
+   border: 0;
+   border-radius: 30px;
+   color: white;
+   cursor: text;
+   font-family: 'Maven Pro', sans-serif;
+   font-size: 16px;
+   font-weight: 500;
+   padding-left: 6px;
+   padding-right: 6px;
+}
+
+.my-label-orange {
+   background: #ED7B00;
 }
 
 

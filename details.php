@@ -1,6 +1,10 @@
 <?php 
 
-   require_once 'connection.php';
+   require_once 'connection.php';   
+   
+   // Akan mencari keseluruhan jumlah quantity pada cart
+   // Menghasilkan variabel '$cartQuantityAll'
+   require_once 'cart/cart-quantity.php'; 
 
    $coffeeID = $_GET["id"];
 
@@ -49,14 +53,39 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 kopeey-menu">
-               <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="index.php">Products</a>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle active" href="#" id="navbarProducts" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                     Products
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarProducts">
+                     <li><a href="index.php#category-arabica" class="btn-arabica dropdown-item" >Kopi Arabica</a></li>
+                     <li><a href="index.php#category-liberica" class="btn-liberica dropdown-item" >Kopi Liberica</a></li>
+                     <li><a href="index.php#category-robusta" class="btn-robusta dropdown-item" >Kopi Robusta</a></li>
+                  </ul>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarAbout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                     About
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarAbout">
+                     <li><a class="dropdown-item" href="about.php">About Us</a></li>
+                     <li><a class="dropdown-item" href="contact.php">Contact Us</a></li>
+                  </ul>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="about.php">About</a>
+                  <a class="nav-link" aria-current="page" href="cart">
+                     <i class="fas fa-shopping-cart"></i>
+                     <span class="translate-middle badge my-label my-label-orange">
+                        <?php if($cartQuantityAll > 99){ $cartQuantityAll = '99+'; } ?>
+                        <?= $cartQuantityAll; ?>
+                        <span class="visually-hidden">unread messages</span>
+                     </span>
+                  </a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="contact.php">Contact Us</a>
+                  <div class="btn-outline-admin px-2 text-center">
+                     <a class="nav-link" aria-current="page" href="admin">Admin</a>
+                  </div>
                </li>
             </ul>
          </div>
@@ -96,7 +125,7 @@
             </div>
 
             <div class="col-lg-6 product-info">
-               <form class="row gx-0">
+               <form action="cart/add-to-cart.php?id=<?= $coffeeID; ?>" method="post" class="row gx-0">
                   <div class="col-12 mb-2">
                      <div class="btn product-info-category mb-1">
                         <?= $coffee['category']; ?>
@@ -124,7 +153,7 @@
                   <!-- Pilihan Berat -->
                   <div class="col-lg-3 mb-lg-0 mb-3 product-info-weights">
                      <label class="options-container">
-                        <input type="radio" name="product-weights" checked>
+                        <input type="radio" name="weights" value="250 gr" checked>
                         <div class="btn btn-options">
                            250 gr
                         </div>
@@ -132,7 +161,7 @@
                   </div>
                   <div class="col-lg-3 mb-lg-0 mb-3 product-info-weights">
                      <label class="options-container">
-                        <input type="radio" name="product-weights">
+                        <input type="radio" name="weights" value="500 gr">
                         <div class="btn btn-options">
                            500 gr
                         </div>
@@ -140,7 +169,7 @@
                   </div>
                   <div class="col-lg-3 mb-lg-0 mb-3 product-info-weights">
                      <label class="options-container">
-                        <input type="radio" name="product-weights">
+                        <input type="radio" name="weights" value="1 kg">
                         <div class="btn btn-options">
                            1 kg
                         </div>
@@ -156,7 +185,7 @@
                   <!-- Pilihan Gilingan -->
                   <div class="col-lg-4 mb-3 product-info-grind">
                      <label class="options-container">
-                        <input type="radio" name="product-grind" checked>
+                        <input type="radio" name="grind_level" value="Fine" checked>
                         <div class="btn btn-options">
                            Fine
                         </div>
@@ -164,7 +193,7 @@
                   </div>
                   <div class="col-lg-4 mb-3 product-info-grind">
                      <label class="options-container">
-                        <input type="radio" name="product-grind">
+                        <input type="radio" name="grind_level" value="Medium">
                         <div class="btn btn-options">
                            Medium
                         </div>
@@ -172,7 +201,7 @@
                   </div>
                   <div class="col-lg-4 mb-3 product-info-grind">
                      <label class="options-container">
-                        <input type="radio" name="product-grind">
+                        <input type="radio" name="grind_level" value="Coarse">
                         <div class="btn btn-options">
                            Coarse
                         </div>
@@ -180,9 +209,9 @@
                   </div>
                   <div class="col-lg-4 product-info-grind">
                      <label class="options-container">
-                        <input type="radio" name="product-grind">
+                        <input type="radio" name="grind_level" value="Beans">
                         <div class="btn btn-options">
-                           Biji
+                           Beans
                         </div>
                      </label>
                   </div>
@@ -201,11 +230,12 @@
 
                   <!-- Tombol Masukkan Keranjang -->
                   <div class="col-12 mt-4">
-                     <a href="" class="btn btn-beli-sekarang px-4" role="button">
+                     <button type="submit" class="btn btn-beli-sekarang px-4" role="button">
                         <i class="fas fa-cart-plus"></i>
                         &nbsp;Masukkan Keranjang
-                     </a>
+                     </button>
                   </div>
+
                </form>
             </div>
 
@@ -228,13 +258,13 @@
                   Products
                </div>
                <div class="footer-link mb-3">
-                  <a href="index.php#category-arabica" id="btn-footer-arabica">Kopi Arabica</a>
+                  <a href="index.php#category-arabica" class="btn-arabica" id="btn-footer-arabica">Kopi Arabica</a>
                </div>
                <div class="footer-link mb-3">
-                  <a href="index.php#category-liberica" id="btn-footer-liberica">Kopi Liberica</a>
+                  <a href="index.php#category-liberica" class="btn-liberica" id="btn-footer-liberica">Kopi Liberica</a>
                </div>
                <div class="footer-link">
-                  <a href="index.php#category-robusta" id="btn-footer-robusta">Kopi Robusta</a>
+                  <a href="index.php#category-robusta" class="btn-robusta" id="btn-footer-robusta">Kopi Robusta</a>
                </div>
             </div>
 
@@ -271,6 +301,32 @@
       </div>
    </section>
 
+   <script type="text/javascript" src="libraries/jquery-3.6.0.min.js"></script>
    <script src="libraries/bootstrap-5.1.3-dist/js/bootstrap.bundle.js"></script>
+   <script>
+      var price = parseFloat("<?php echo $coffee['price']; ?>");
+      console.log(price);
+      
+      // Mengubah tampilan harga kopi jika berat kopi dipilih
+      $('input[type=radio][name=weights]').change(function() {
+
+         if (this.value == '250 gr') {
+            let price250G = price.toLocaleString("id-ID");
+            $('.product-info-price').html("Rp. " + price250G + "<span> / 250 gr</span>");
+         }
+         else if (this.value == '500 gr') {
+            let price500G = price * 2;
+            price500G = price500G.toLocaleString("id-ID");
+            $('.product-info-price').html("Rp. " + price500G + "<span> / 500 gr</span>");
+         }
+         else if (this.value == '1 kg') {
+            let price1KG = price * 4; 
+            price1KG = price1KG.toLocaleString("id-ID");
+            $('.product-info-price').html("Rp. " + price1KG + "<span> / 1 kg</span>");
+         }
+
+      });
+   </script>
+
 </body>
 </html>

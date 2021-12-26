@@ -1,3 +1,13 @@
+<?php 
+
+   require_once 'connection.php';
+   
+   // Akan mencari keseluruhan jumlah quantity pada cart
+   // Menghasilkan variabel '$cartQuantityAll'
+   require_once 'cart/cart-quantity.php'; 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,14 +35,39 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 kopeey-menu">
-               <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="index.php">Products</a>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle active" href="#" id="navbarProducts" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                     Products
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarProducts">
+                     <li><a href="index.php#category-arabica" class="btn-arabica dropdown-item" >Kopi Arabica</a></li>
+                     <li><a href="index.php#category-liberica" class="btn-liberica dropdown-item" >Kopi Liberica</a></li>
+                     <li><a href="index.php#category-robusta" class="btn-robusta dropdown-item" >Kopi Robusta</a></li>
+                  </ul>
+               </li>
+               <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarAbout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                     About
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarAbout">
+                     <li><a class="dropdown-item" href="about.php">About Us</a></li>
+                     <li><a class="dropdown-item" href="contact.php">Contact Us</a></li>
+                  </ul>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="about.php">About</a>
+                  <a class="nav-link" aria-current="page" href="cart">
+                     <i class="fas fa-shopping-cart"></i>
+                     <span class="translate-middle badge my-label my-label-orange">
+                        <?php if($cartQuantityAll > 99){ $cartQuantityAll = '99+'; } ?>
+                        <?= $cartQuantityAll; ?>
+                        <span class="visually-hidden">unread messages</span>
+                     </span>
+                  </a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="contact.php">Contact Us</a>
+                  <div class="btn-outline-admin px-2 text-center">
+                     <a class="nav-link" aria-current="page" href="admin">Admin</a>
+                  </div>
                </li>
             </ul>
          </div>
@@ -132,13 +167,13 @@
                   Products
                </div>
                <div class="footer-link mb-3">
-                  <a href="index.php#category-arabica" id="btn-footer-arabica">Kopi Arabica</a>
+                  <a href="index.php#category-arabica" class="btn-arabica" id="btn-footer-arabica">Kopi Arabica</a>
                </div>
                <div class="footer-link mb-3">
-                  <a href="index.php#category-liberica" id="btn-footer-liberica">Kopi Liberica</a>
+                  <a href="index.php#category-liberica" class="btn-liberica" id="btn-footer-liberica">Kopi Liberica</a>
                </div>
                <div class="footer-link">
-                  <a href="index.php#category-robusta" id="btn-footer-robusta">Kopi Robusta</a>
+                  <a href="index.php#category-robusta" class="btn-robusta" id="btn-footer-robusta">Kopi Robusta</a>
                </div>
             </div>
 

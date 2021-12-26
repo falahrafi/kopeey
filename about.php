@@ -18,7 +18,7 @@
    
    <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container py-4 justify-content-center">
-         <a class="navbar-brand" href="index.html">
+         <a class="navbar-brand" href="index.php">
             <img src="assets/images/kopeey-logo-text-light.png" alt="" height="42">
          </a>
       </div>

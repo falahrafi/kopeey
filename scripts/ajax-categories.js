@@ -41,15 +41,15 @@ $('input[type=radio][name=coffee-category]').change(function() {
 
 // AJAX untuk kategori pada footer
 
-$('#btn-footer-arabica').click(function() {
+$('.btn-arabica').click(function() {
    $("#category-arabica").prop("checked", true);
-   $('#product-catalogues').load('ajax/product-categories.php?q-arabica');
+   $('#product-catalogues').load('ajax/product-categories.php?q=arabica');
 });
-$('#btn-footer-liberica').click(function() {
+$('.btn-liberica').click(function() {
    $("#category-liberica").prop("checked", true);
    $('#product-catalogues').load('ajax/product-categories.php?q=liberica');
 });
-$('#btn-footer-robusta').click(function() {
+$('.btn-robusta').click(function() {
    $("#category-robusta").prop("checked", true);
    $('#product-catalogues').load('ajax/product-categories.php?q=robusta');
 });
