@@ -2,20 +2,19 @@
 
       require_once '../connection.php';
 
+      // Mengambil data berdasarkan halaman 'details.php'
       $weights = htmlspecialchars($_POST["weights"]);
       $grindLevel = htmlspecialchars($_POST["grind_level"]);
       $coffeeID = htmlspecialchars($_POST["coffee_id"]);
-      $cartID = $_GET['q'];
+
       $qtyNew = (int) $_GET['qty'];
 
       // Mengambil data quantity saat ini (sebelum diubah)
-      $sql = "SELECT COUNT(id) AS 'qtyOld' FROM `carts` GROUP BY weights, grind_level, coffee_id HAVING MAX(id) = $cartID;";
-      $result = mysqli_query($conn, $sql);
-      $rows = [];
-      while($row = mysqli_fetch_assoc($result)){
-         $rows[] = $row;
-      }
-      $qtyOld = (int) $rows[0]['qtyOld'];
+      $cart = "SELECT * FROM `carts` WHERE weights = '$weights' AND grind_level = '$grindLevel' AND coffee_id = $coffeeID;";
+      $resultCart = mysqli_query($conn, $cart);
+      $rowCart = mysqli_fetch_assoc($resultCart);
+      $cartID = $rowCart['id'];
+      $qtyOld = (int) $rowCart['quantity'];
 
       // Menghitung selisih quantity
       $qtyGap = $qtyNew - $qtyOld;
@@ -24,33 +23,13 @@
       // Jika positif maka quantity nantinya akan ditambah
       // Jika negatif maka quantity nantinya akan dikurangi
       if($qtyGap > 0){
-         $qtyChange = array("add_remove" => "add", "how_much" => $qtyGap);
+         $qtyChange = (int) $qtyOld + $qtyGap;
       } else if ($qtyGap < 0) {
-         $qtyChange = array("add_remove" => "remove", "how_much" => abs($qtyGap));
+         $qtyChange = (int) $qtyOld - abs($qtyGap);
       }
 
-      $queryAdd = "INSERT INTO carts
-                  VALUES
-                  ('', '$weights', '$grindLevel', '$coffeeID')
-            ";
+      $query = "UPDATE carts SET quantity = $qtyChange WHERE id = $cartID";
 
-      $queryRemove = "DELETE FROM carts WHERE weights='$weights'
-                        AND grind_level='$grindLevel' AND coffee_id=$coffeeID
-                        ORDER BY id DESC LIMIT 1;";
-
-
-      // Menambah atau mengurangi sebanyak selisih quantity
-      if($qtyGap != 0) {
-         if ($qtyChange['add_remove'] == "add") {
-            for ($i=0; $i < $qtyChange['how_much']; $i++) { 
-               mysqli_query($conn, $queryAdd);
-            }
-         }
-         else if ($qtyChange['add_remove'] == "remove") {
-            for ($i=0; $i < $qtyChange['how_much']; $i++) { 
-               mysqli_query($conn, $queryRemove);
-            }
-         }
-      }
+      mysqli_query($conn, $query);
 
 ?>

@@ -1,6 +1,6 @@
 <?php 
 
-   $sql = "SELECT COUNT(id) AS 'quantity' FROM `carts`";
+   $sql = "SELECT SUM(quantity) AS 'quantityAll' FROM `carts`";
    $result = mysqli_query($conn, $sql);
 
    $rows = [];
@@ -8,6 +8,6 @@
       $rows[] = $row;
    }
 
-   $cartQuantityAll = $rows[0]['quantity'];
+   $cartQuantityAll = $rows[0]['quantityAll'];
 
 ?>

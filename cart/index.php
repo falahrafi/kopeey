@@ -2,12 +2,12 @@
 
    require_once '../connection.php';
 
-   $sql = "SELECT COUNT(carts.id) AS 'quantity', coffees.id AS 'coffeeID', MAX(carts.id) AS 'cartID', 
+   $sql = "SELECT carts.quantity, coffees.id AS 'coffeeID', carts.id AS 'cartID', 
             coffees.category, coffees.name, coffees.price, carts.weights, carts.grind_level, galleries.image
             FROM `carts`
             INNER JOIN coffees ON coffees.id = carts.coffee_id
             INNER JOIN galleries ON coffees.id = galleries.coffee_id
-            WHERE type='main'
+            WHERE type='main' AND quantity > 0
             GROUP BY coffees.id, carts.weights, carts.grind_level
             ORDER BY carts.id;";
    $result = mysqli_query($conn, $sql);
@@ -92,7 +92,7 @@
                <?php 
                   foreach ($rows as $cart):
                ?>
-               
+
                <div class="row cart-item-container p-4 mt-4 gx-md-5">
                   <div class="col-sm-3 cart-image-container p-2 text-center">
                      <img
@@ -328,7 +328,6 @@
          $.ajax({
             type: "POST",
             url: "add-quantity.php",
-            dataType:'JSON',
             data: $('#cartData-'+cartID).serialize(),
             success: function (response) {
                $("#cartContainer").load(" #cartContainer > *");
@@ -340,7 +339,7 @@
       function removeQuantity(cartID){
          $.ajax({
             type: "POST",
-            url: "remove-quantity.php?q="+cartID,
+            url: "remove-quantity.php",
             data: $('#cartData-'+cartID).serialize(),
             success: function (response) {
                $("#cartContainer").load(" #cartContainer > *");
@@ -354,7 +353,7 @@
 
          $.ajax({
             type: "POST",
-            url: "change-quantity.php?q="+cartID+"&qty="+quantityValue,
+            url: "change-quantity.php?qty="+quantityValue,
             data: $('#cartData-'+cartID).serialize(),
             success: function (response) {
                $("#cartContainer").load(" #cartContainer > *");
@@ -366,7 +365,7 @@
       function deleteCart(cartID){
          $.ajax({
             type: "POST",
-            url: "delete-cart.php",
+            url: "delete-cart.php?id="+cartID,
             data: $('#cartData-'+cartID).serialize(),
             success: function (response) {
                $("#cartContainer").load(" #cartContainer > *");
