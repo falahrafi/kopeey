@@ -92,6 +92,25 @@
             </li>
 
             <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item" id="menuPesan">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePesan"
+                    aria-expanded="true" aria-controls="collapsePesan">
+                    <i class="fas fa-fw fa-envelope"></i>
+                    <span>Pesan Pengguna</span>
+                </a>
+                <div id="collapsePesan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" id="sidebarDataPesan" role="button">
+                            <i class="fas fa-table"></i>&ensp;Data Pesan Pengguna
+                        </a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Sidebar Toggler (Sidebar) -->

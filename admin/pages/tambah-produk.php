@@ -1,6 +1,6 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-dark">Tambah Produk <i class="fas fa-mug-hot fa-sm"></i></h1>
+    <h1 class="h3 mb-0 text-black">Tambah Produk <i class="fas fa-mug-hot fa-sm"></i></h1>
 </div>
 
 <!-- Basic Card Example -->

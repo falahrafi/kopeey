@@ -14,7 +14,7 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between">
-   <h1 class="h3 mb-0 text-black">Data Produk</h1>
+   <h1 class="h3 mb-0 text-black">Produk <i class="fas fa-mug-hot fa-sm"></i></h1>
    <buttton class="btn btn-black d-sm-inline-block shadow-sm ml-auto mr-2 my-3 my-sm-0" id="btnRefresh">
       <i class="fas fa-sync-alt fa-sm text-white"></i>
    </buttton>
@@ -126,13 +126,20 @@
             "lengthMenu": 'Tampilkan _MENU_ baris',
             "search": "Cari:",
             "zeroRecords": "Tidak ada data yang cocok",
-            "emptyTable": "<h3 class='text-center my-5'>Belum ada produk, silakan tambahkan terlebih dahulu!</h3>"
+            "emptyTable": "<h3 class='text-center my-5'>Belum ada produk, silakan tambahkan terlebih dahulu!</h3>",
+            "paginate": {
+               "first":      "First",
+               "last":       "Last",
+               "next":       "<i class='fas fa-chevron-right'></i>",
+               "previous":   "<i class='fas fa-chevron-left'></i>"
+            }
          },
          'columnDefs': [ {
             'targets': [5], /* column index */
             'orderable': false, /* true or false */
          }],
-         "bDestroy": true
+         "bDestroy": true,
+         dom: 'lpftrip'
       });
    });
 </script>

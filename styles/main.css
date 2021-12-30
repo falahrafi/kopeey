@@ -394,4 +394,18 @@ body {
       margin-left: 0;
       margin-right: 0;
    }
+   .hero-title {
+      font-size: 44px;
+   }
+   .hero-paragraph {
+      font-size: 16px;
+      line-height: 26px;
+   }
+   .categories {
+      margin-top: 80px;
+      margin-bottom: 100px;
+   }
+   .footer {
+      padding-top: 70px;
+   }
 }

@@ -230,7 +230,7 @@
 
                   <!-- Tombol Masukkan Keranjang -->
                   <div class="col-12 mt-4">
-                     <button type="submit" class="btn btn-beli-sekarang px-4" role="button">
+                     <button type="submit" class="btn btn-masukkan-keranjang px-4" role="button">
                         <i class="fas fa-cart-plus"></i>
                         &nbsp;Masukkan Keranjang
                      </button>

@@ -18,7 +18,7 @@
 
     echo "
             <script>
-                document.location.href = '../../index.php#produk';
+                document.location.href = '../../index.php';
             </script>
         ";
 

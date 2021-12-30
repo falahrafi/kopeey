@@ -77,8 +77,8 @@
    <section class="kopeey-hero">
       <div class="container">
          <div class="row">
-            <div class="col-lg-5 mt-5">
-               <h1 class="hero-title mb-4 mt-3">
+            <div class="col-lg-5 mt-4 mt-sm-5">
+               <h1 class="hero-title mb-4 mt-2 mt-sm-3">
                   Jelajahi Nusantara Dengan Kopi
                </h1>
                <p class="hero-paragraph mb-5">

@@ -41,7 +41,7 @@
          <div class="row contact-card justify-content-center">
 
             <div class="col-lg-4 col-sm-10 col-11 offset-lg-1">
-               <form class="row">
+               <form action="admin/functions/contact_us/tambah.php" method="POST" class="row">
                   <div class="col-12">
                      <h2>Hubungi Kami</h2>
                   </div>
@@ -54,15 +54,15 @@
                   </div>
                   <div class="col-12">
                      <label for="inputNama" class="form-label">Nama</label>
-                     <input type="text" class="form-control contact-input" id="inputNama">
+                     <input type="text" name="name" class="form-control contact-input" id="inputNama" required>
                   </div>
                   <div class="col-12">
                      <label for="inputEmail" class="form-label">Email</label>
-                     <input type="email" class="form-control contact-input" id="inputEmail">
+                     <input type="email" name="email" class="form-control contact-input" id="inputEmail" required>
                   </div>
                   <div class="col-12">
                      <label for="inputPesan" class="form-label">Pesan Anda</label>
-                     <textarea class="form-control contact-input" id="inputPesan" rows="5"></textarea>
+                     <textarea name="message" class="form-control contact-input" id="inputPesan" rows="5" required></textarea>
                   </div>
                   <div class="col-12">
                      <button type="submit" class="btn btn-kirim-pesan px-4">

@@ -35,6 +35,13 @@
    background-color: transparent;
    color: white;
 }
+.btn-link:hover {
+   background-color: rgba(0, 0, 0, .1) !important;
+   color: white;
+}
+.btn:focus {
+   box-shadow: none !important;
+}
 
 h2 {
    font-family: 'Maven Pro', sans-serif;
@@ -131,5 +138,9 @@ table.table-bordered>thead>tr>th {
 @media only screen and (max-width: 576px) {
    h2 {
       font-size: 20px;
+   }
+   .isi-konten-admin {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
    }
 }

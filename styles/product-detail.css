@@ -160,7 +160,24 @@
    color: rgba(255, 255, 255, 0.5);
 }
 
+.btn-masukkan-keranjang {
+   background-image: linear-gradient(to right, #ED7B00, #EF9610, #EF9610, #ED7B00);
+   background-position: left;
+   background-size: 200%;
+   border-radius: 32px;
+   box-shadow: 0 5px 30px 0px rgba(237, 122, 0, 0.3);
+   color: white;
+   font-family: 'Nunito Sans', sans-serif;
+   font-size: 22px;
+   font-weight: 700;
+   transition: all 0.3s ease-in-out;
+}
 
+.btn-masukkan-keranjang:hover {
+   background-position: right;
+   color: white;
+   font-size: 23px;
+}
 
 
 
@@ -212,5 +229,20 @@
    }
    .product-info-price span {
       font-size: 12px;
+   }
+   .product-detail-card {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 24px;
+   }
+   .product-detail .container {
+      padding-left: 0;
+      padding-right: 0;
+   }
+   .btn-masukkan-keranjang {
+      font-size: 18px;
+   }
+   .btn-masukkan-keranjang:hover {
+      font-size: 19px;
    }
 }

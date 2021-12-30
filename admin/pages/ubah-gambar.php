@@ -26,7 +26,7 @@
     <div class="card-header bg-black py-3">
         <h6 class="m-0 font-weight-bold text-white">Form Ubah Gambar</h6>
     </div>
-    <div class="card-body text-black py-4 px-5">
+    <div class="card-body text-black py-4 px-3 px-sm-5">
         
         <form action="functions/gallery/ubah.php?id=<?= $galleryID; ?>" method="POST" enctype="multipart/form-data" class="text-center">
             <div class="form-row text-left">

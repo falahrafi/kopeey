@@ -20,11 +20,11 @@
 
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-   <h1 class="h3 mb-0 text-black">Data Gambar</h1>
+   <h1 class="h3 mb-0 text-black">Gambar <i class="fas fa-images fa-sm"></i></h1>
    <buttton class="btn btn-black d-sm-inline-block shadow-sm ml-auto mr-2" id="btnRefresh">
       <i class="fas fa-sync-alt fa-sm text-white"></i>
    </buttton>
-   <a class="d-none d-sm-inline-block btn btn-black shadow-sm" id="btnTambahGambar" role="button">
+   <a class="d-sm-inline-block btn btn-black shadow-sm my-3 my-sm-0" id="btnTambahGambar" role="button">
         <i class="fas fa-plus fa-sm"></i>&ensp;<b>Tambah</b>
    </a>
 </div>
@@ -117,13 +117,20 @@
             "lengthMenu": 'Tampilkan _MENU_ baris',
             "search": "Cari:",
             "zeroRecords": "Tidak ada data yang cocok",
-            "emptyTable": "<h3 class='text-center my-5'>Belum ada gambar, silakan tambahkan terlebih dahulu!</h3>"
+            "emptyTable": "<h3 class='text-center my-5'>Belum ada gambar, silakan tambahkan terlebih dahulu!</h3>",
+            "paginate": {
+               "first":      "First",
+               "last":       "Last",
+               "next":       "<i class='fas fa-chevron-right'></i>",
+               "previous":   "<i class='fas fa-chevron-left'></i>"
+            }
          },
          'columnDefs': [ {
-            'targets': [4], /* column index */
+            'targets': [1,4], /* column index */
             'orderable': false, /* true or false */
          }],
-         "bDestroy": true
+         "bDestroy": true,
+         dom: 'lpftrip'
       });
    });
 </script>
