@@ -8,13 +8,14 @@
     $price = htmlspecialchars($_POST["price"]);
     $description = htmlspecialchars($_POST["description"]);
 
-    $query = "INSERT INTO coffees VALUES ('', '$name', '$category', $price, '$description')";
+    $query = "INSERT INTO coffees (name, category, price, description)
+                VALUES ('$name', '$category', $price, '$description')";
 
     mysqli_query($conn, $query);
 
     echo "
             <script>
-                document.location.href = '../../index.php#produk';
+                document.location.href = '../../index.php';
             </script>
         ";
 

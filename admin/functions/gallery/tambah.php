@@ -38,13 +38,14 @@
    move_uploaded_file($tmpName, "../../../" . $imagePathNew);
 
 
-   $query = "INSERT INTO galleries VALUES ('', '$imagePathNew', '$imageType', $coffeeID)";
+   $query = "INSERT INTO galleries (image, type, coffee_id)
+               VALUES ('$imagePathNew', '$imageType', $coffeeID)";
 
    mysqli_query($conn, $query);
 
    echo "
          <script>
-               document.location.href = '../../index.php#gambar';
+               document.location.href = '../../index.php';
          </script>
       ";
 

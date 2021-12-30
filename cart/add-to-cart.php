@@ -26,7 +26,8 @@
     if($rowCartExists['exists'] == '1') {
         $query = "UPDATE carts SET quantity = $quantityNew WHERE id = $cartID";
     } else {
-        $query = "INSERT INTO carts VALUES ('', '$weights', '$grindLevel', 1, '$coffeeID')";
+        $query = "INSERT INTO carts (weights, grind_level, quantity, coffee_id)
+                    VALUES ('$weights', '$grindLevel', 1, '$coffeeID')";
     }
 
    mysqli_query($conn, $query);
