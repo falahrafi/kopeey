@@ -64,11 +64,11 @@
                      </span>
                   </a>
                </li>
-               <li class="nav-item">
+               <!-- <li class="nav-item">
                   <div class="btn-outline-admin px-2 text-center">
                      <a class="nav-link" aria-current="page" href="admin">Admin</a>
                   </div>
-               </li>
+               </li> -->
             </ul>
          </div>
       </div>
